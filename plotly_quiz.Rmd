@@ -1,0 +1,21 @@
+---
+title: "plotly_example"
+author: "Diego Alonso Lazo Paz"
+date: "7/7/2020"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE);library(ISLR);library(ggplot2);library(plotly);library(dplyr)
+```
+
+## Plotly example
+```{r}
+g1<-ggplot(Wage,aes(x=age,y=wage,color=race,fill=race))+
+  geom_point()+
+  geom_smooth(method = "lm",se=FALSE)+
+  facet_wrap(~education)+
+  theme_classic()
+ggplotly(g1)
+
+```
